@@ -86,6 +86,7 @@ jobs:
             ./dist/*.apk
           key: ${{ runner.os }}-go-${{ hashFiles('**/*.go') }}-${{ hashFiles('**/go.sum') }}
       - uses: sigstore/cosign-installer@v1.4.1
+      - uses: CycloneDX/gh-gomod-generate-sbom@v1
       - uses: anchore/sbom-action/download-syft@v0.6.0
       - name: setup-validate-krew-manifest
         # TODO: replace this once https://github.com/kubernetes-sigs/krew/pull/736 is merged
