@@ -202,8 +202,17 @@ snapcrafts:
     publish: true
 
 sboms:
-  - artifacts: archive
-
+  - id: syft
+    documents:
+      - "${artifact}.spdx.sbom"
+    artifacts: archive
+  - id: cdx
+    documents:
+      - "${artifact}.cdx.sbom"
+    artifacts: binary
+    cmd: cyclonedx-gomod
+    args: ["bin", "-version", "{{ .Tag }}", "-json", "-output", "$document", "$artifact"]
+    
 signs:
 - cmd: cosign
   env:
