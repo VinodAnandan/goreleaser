@@ -10,7 +10,7 @@ snapshot:
   name_template: '{{ incpatch .Version }}-next'
 
 gomod:
-  proxy: true
+  proxy: false
 
 builds:
 - env:
