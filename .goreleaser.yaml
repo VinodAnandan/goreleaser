@@ -202,10 +202,6 @@ snapcrafts:
     publish: true
 
 sboms:
-  - id: syft
-    documents:
-      - "${artifact}.spdx.sbom"
-    artifacts: archive
   - id: cdx
     documents:
       - "${artifact}.cdx.sbom"
